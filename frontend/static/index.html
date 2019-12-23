@@ -1,0 +1,32 @@
+<html ng-app="redis">
+  <head>
+    <title>My WatchList</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
+    <script src="controllers.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.0/ui-bootstrap-tpls.js"></script>
+  </head>
+  <body ng-controller="RedisCtrl">
+    <div style="width: 50%; margin-left: 20px">
+      <h2>My WatchList</h2>
+    <form>
+    <fieldset>
+    <input ng-model="item" placeholder="item" class="form-control" type="text" name="input" ><br>
+    <button type="button" class="btn btn-primary" ng-click="controller.onRedis()">Submit</button>
+    </fieldset>
+    </form>
+    <div>
+      <div ng-repeat="item in items track by $index">
+        <div>
+            <span style="display:inline-block; width:200px; border-bottom: solid 1px lightgrey;">
+                {{item.Value}}
+            </span>
+            <span style="display:inline-block; width:100px">
+                <button style="border: solid 1px lightblue;" type="button" ng-click="controller.onDelete(item.ID, $index)" class="btn btn-secondary btn-sm">Delete</button>
+            </span>
+        </div>
+      </div>
+    </div>
+    </div>
+  </body>
+</html>

@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ReplicationController
 metadata:
-  name: redis-master
+  name: redis-watchlist
   # these labels can be applied automatically 
   # from the labels in the pod template if not set
   labels:
@@ -30,17 +30,17 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-    name: redisdb-watchlist
-    labels:
+  name: redis-watchlist
+  labels:
     app: redis
     role: master
     tier: backend
 spec:
-    ports:
+  ports:
     # the port that this service should serve on
-    - port: 6379
+  - port: 6379
     targetPort: 6379
-    selector:
+  selector:
     app: redis
     role: master
     tier: backend

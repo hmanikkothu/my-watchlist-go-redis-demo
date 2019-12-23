@@ -27,6 +27,6 @@ COPY --from=builder static /static
 CMD ["/opt/main"]
 
 #docker network create -d bridge hkb
-#docker run --rm --network=hkb --name=watchlistredis gcr.io/google_containers/redis:e2e
-#docker run --rm --network=hkb -it -p=8080:8080 --name=my-watchlist --env REDIS_HOST=redisdb-watchlist localhost/my-watchlist sh
-#docker run --rm --network=hkb -p=8080:8080 --name=my-watchlist --env REDIS_HOST=redisdb-watchlist localhost/my-watchlist
+#docker run --rm --network=hkb --name=redis-watchlist gcr.io/google_containers/redis:e2e
+#docker run --rm --network=hkb -it -p=8080:8080 --name=my-watchlist --env REDIS_HOST=redis-watchlist localhost/my-watchlist sh
+#docker run --rm --network=hkb -p=8080:8080 --name=my-watchlist --env REDIS_HOST=redis-watchlist localhost/my-watchlist
